@@ -10,6 +10,7 @@ body {
 	padding-left: 0!important;
 }
 #wrap {
+	margin-top: 1px;
 	min-width: 100%;
 	position: absolute;
 	background: #eff3f6 bottom;
@@ -57,37 +58,45 @@ body {
 	min-height: 500px;
 }
 /*左侧菜单栏*/
-
+#xhead{
+	padding-bottom: 20px;
+	height: 70px;
+	font-size: 17px;	
+	background-color: #3d4e60;
+	vertical-align: bottom;
+}
 #logoDiv {
 	padding-top: 20px;
 	padding-bottom: 20px;
+	padding-left: 20px;
 	height: 70px;
-	background-color: #354457;
 	font-size: 17px;
 	color: #fff;
 	vertical-align: bottom;
+	float: left;
 }
 #logo {
 	height: 30px;
+	width: 40px;
 	padding-right: 5px;
 }
 #logoDiv span {
 	vertical-align: bottom;
 }
 #personInfor {
+	height: 70px;
 	padding: 10px 5px 10px;
-	margin: 0 5px;
-	color: #b3bcc5;
-	border-bottom: 1px solid #354457;
-	overflow-x: hidden;
-	padding-left: 20px;
+	border-bottom: 1px solid #18212c;
+	padding-right: 20px;	
+	float: right;
 }
 #personInfor p {
 	font-size: 12px;
-	margin-left: -5px;
+	margin-left: -5px;	
+	color: #16a085;
 }
 #personInfor a {
-	color: #B3BCC5;
+	color: #16a085;
 	text-decoration: underline;
 }
 #userName {

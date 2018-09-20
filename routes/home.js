@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var cfg = require("../entity/config")
+var cfg = require("../entity/config");
 var path = require('path');
 
 router.get("/",function(req,res){ 

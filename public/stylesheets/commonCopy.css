@@ -47,6 +47,7 @@ html,body {
 	font-size: 17px;
 	color: #fff;
 	vertical-align: bottom;
+	float: left;
 }
 #logo {
 	height: 30px;
@@ -56,12 +57,13 @@ html,body {
 	vertical-align: bottom;
 }
 #personInfor {
-	padding: 10px 5px 10px;
-	margin: 0 5px;
+	height: 70px;
+	padding: 0px 5px 10px;
 	color: #b3bcc5;
 	border-bottom: 1px solid #18212c;
-	overflow-x: hidden;
-	padding-left: 20px;
+	padding-left: 20px;	
+	
+	float: left;
 }
 #personInfor p {
 	font-size: 12px;

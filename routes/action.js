@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var cfg = require("../entity/config")
+var cfg = require("../entity/config");
+var path = require("path");
 
 router.post("/base_config", function(req,res){ 					   // 从此路径检测到post方式则进行post数据的处理操作
     console.log(req.body);    
