@@ -76,7 +76,7 @@
 				$('#deleteTask button[name="save"]').attr("data-taskid", taskid);
 				//set_delete_task(default_cfg.tasklist, taskid);
 			});
-			
+
 			$('#add_backup').hide();
 			$('#addTask select[name="work_direction"]').change(function () {
 				if ($(this).val() == "sync") {
@@ -103,14 +103,15 @@
 				}
 			})
 			$('select[name="workmode"]').change(function () {
-				
+
 				if ($(this).val() == "move") {
 					$('#add_backup').show();
-				}else {
+				} else {
 					$('#add_backup').hide();
 				}
 
 			})
+
 
 		})
 		function submit_add_task() {
@@ -183,6 +184,16 @@
 				$('#forward_port').hide();
 			}
 		}
+		function cloud_scan() {
+			var show = "";
+			show = $("input[name='virus_scan']:checked").val();
+			if (show == "yes") {
+				$('#cloud_scan').show();
+			}
+			else {
+				$('#cloud_scan').hide();
+			}
+		}
 	</script>
 	<script src="javascripts/action.js"></script>
 	<!--[if lt IE 9]>
@@ -198,19 +209,19 @@
 
 <body>
 	<div id="xhead">
-	<div id="logoDiv">
+		<div id="logoDiv">
 			<p id="logoP"><img id="logo" alt="左右结构项目" src="images/logo.ico"><span>文件同步客户端</span></p>
-	</div>	
-	<div id="personInfor">
+		</div>
+		<div id="personInfor">
 			<p id="userName">
 				<%- user.name %>
 			</p>
 			<p>
 				<a href="/logout">退出登录</a>
 			</p>
+		</div>
 	</div>
-	</div>
-	
+
 	<div id="wrap">
 		<!-- 左侧菜单栏目块 -->
 		<div class="leftMeun" id="leftMeun">
@@ -302,7 +313,7 @@
 												<div class="form-group ">
 													<label for="sName" class="col-xs-3 control-label">临时命名:</label>
 													<div class="col-xs-8 ">
-														<input type="text" class="form-control input-sm duiqi"  name="tmpname">
+														<input type="text" class="form-control input-sm duiqi" name="tmpname">
 													</div>
 												</div>
 												<div class="form-group">
@@ -340,37 +351,37 @@
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">网闸地址:</label>
 												<div class="col-xs-6 ">
-													<input type="text" class="form-control input-sm duiqi"  name='gap_addr' placeholder="">
+													<input type="text" class="form-control input-sm duiqi" name='gap_addr' placeholder="">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="sLink" class="col-xs-3 control-label">网闸端口:</label>
 												<div class="col-xs-6 ">
-													<input type="number" class="form-control input-sm duiqi"  name='gap_port' placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name='gap_port' placeholder="">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="sOrd" class="col-xs-3 control-label">重连间隔:</label>
 												<div class="col-xs-6">
-													<input type="number" class="form-control input-sm duiqi"  name='retry_intvl' placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name='retry_intvl' placeholder="">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="sOrd" class="col-xs-3 control-label">重连次数:</label>
 												<div class="col-xs-6">
-													<input type="number" class="form-control input-sm duiqi"  name="retry_max" placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name="retry_max" placeholder="">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="sOrd" class="col-xs-3 control-label">扫描间隔:</label>
 												<div class="col-xs-6">
-													<input type="number" class="form-control input-sm duiqi"  name="scann_intvl" placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name="scann_intvl" placeholder="">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="sOrd" class="col-xs-3 control-label">缓时传输:</label>
 												<div class="col-xs-6">
-													<input type="number" class="form-control input-sm duiqi"  name="trans_delay" placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name="trans_delay" placeholder="">
 												</div>
 											</div>
 
@@ -389,13 +400,13 @@
 											<div class="form-group">
 												<label for="sOrd" class="col-xs-3 control-label">扩展名排序:</label>
 												<div class="col-xs-6">
-													<input type="text" class="form-control input-sm duiqi"  name="trans_ext" placeholder="">
+													<input type="text" class="form-control input-sm duiqi" name="trans_ext" placeholder="">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="sOrd" class="col-xs-3 control-label">大小限制:</label>
 												<div class="col-xs-6">
-													<input type="" class="form-control input-sm duiqi"  placeholder="">
+													<input type="" class="form-control input-sm duiqi" placeholder="">
 												</div>
 											</div>
 
@@ -424,19 +435,19 @@
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">监听地址:</label>
 												<div class="col-xs-6 ">
-													<input type="text" class="form-control input-sm duiqi"  name="listen_addr" placeholder="">
+													<input type="text" class="form-control input-sm duiqi" name="listen_addr" placeholder="">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="sLink" class="col-xs-3 control-label">监听端口:</label>
 												<div class="col-xs-6 ">
-													<input type="number" class="form-control input-sm duiqi"  name="listen_port" placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name="listen_port" placeholder="">
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="sOrd" class="col-xs-3 control-label">超时时间:</label>
 												<div class="col-xs-6">
-													<input type="number" class="form-control input-sm duiqi"  name="idle_timeout" placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name="idle_timeout" placeholder="">
 												</div>
 											</div>
 
@@ -468,32 +479,32 @@
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">服务器地址:</label>
 												<div class="col-xs-8 ">
-													<input type="text" class="form-control input-sm duiqi"  name="auth_addr" placeholder="">
+													<input type="text" class="form-control input-sm duiqi" name="auth_addr" placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">服务器端口:</label>
 												<div class="col-xs-8 ">
-													<input type="number" class="form-control input-sm duiqi"  name="auth_port" placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name="auth_port" placeholder="">
 												</div>
 											</div>
 
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">用户名:</label>
 												<div class="col-xs-8 ">
-													<input type="text" class="form-control input-sm duiqi"  name='username' placeholder="">
+													<input type="text" class="form-control input-sm duiqi" name='username' placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">密码:</label>
 												<div class="col-xs-8 ">
-													<input type="password" class="form-control input-sm duiqi"  name="password" placeholder="">
+													<input type="password" class="form-control input-sm duiqi" name="password" placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">证书文件:</label>
 												<div class="col-xs-8 ">
-													<input type="text" class="form-control input-sm duiqi"  name="certificate" placeholder="">
+													<input type="text" class="form-control input-sm duiqi" name="certificate" placeholder="">
 												</div>
 											</div>
 
@@ -532,6 +543,24 @@
 									<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeLog">修改</button>
 								</div>
 							</div>
+							<div class="row">
+								<div id="topZZ" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion"
+								 href="#collapseSchool" aria-expanded="true" aria-controls="collapseOne">
+									<span id="topZ" class="glyphicon glyphicon-triangle-right"></span><span>文件名过滤</span>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+									<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeFilter">修改</button>
+								</div>
+							</div>
+							<div class="row">
+								<div id="topYZ" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion"
+								 href="#collapseSchool" aria-expanded="true" aria-controls="collapseOne">
+									<span id="topY" class="glyphicon glyphicon-triangle-right"></span><span>病毒过滤</span>
+								</div>
+								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+									<button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeVirus">修改</button>
+								</div>
+							</div>
 						</div>
 					</div>
 					<!--高级配置-->
@@ -558,50 +587,49 @@
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">数据库路径:</label>
 												<div class="col-xs-8 ">
-													<input type="text" class="form-control input-sm duiqi"  name="database" placeholder="">
+													<input type="text" class="form-control input-sm duiqi" name="database" placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">日志快照:</label>
 												<div class="col-xs-8 ">
-													<input type="text" class="form-control input-sm duiqi"  name="snapshot" placeholder="">
+													<input type="text" class="form-control input-sm duiqi" name="snapshot" placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">本地地址:</label>
 												<div class="col-xs-8 ">
-													<input type="text" class="form-control input-sm duiqi"  name="local_addr" placeholder="">
+													<input type="text" class="form-control input-sm duiqi" name="local_addr" placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">本地端口:</label>
 												<div class="col-xs-8 ">
-													<input type="number" class="form-control input-sm duiqi"  name="local_port" placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name="local_port" placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">日志级别:</label>
 												<div class="col-xs-8 ">
-													<input type="number" class="form-control input-sm duiqi"  name="local_level" placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name="local_level" placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">空闲时间:</label>
 												<div class="col-xs-8 ">
-													<input type="number" class="form-control input-sm duiqi"  name="keepalive_idle_time" placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name="keepalive_idle_time" placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">检测间隔:</label>
 												<div class="col-xs-8 ">
-													<input type="number" class="form-control input-sm duiqi"  name="keepalive_check_intvl"
-													 placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name="keepalive_check_intvl" placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">重试次数:</label>
 												<div class="col-xs-8 ">
-													<input type="number" class="form-control input-sm duiqi"  name="keepalive_retry_cnt" placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name="keepalive_retry_cnt" placeholder="">
 												</div>
 											</div>
 
@@ -640,7 +668,7 @@
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">存储路径:</label>
 												<div class="col-xs-8 ">
-													<input type="text" class="form-control input-sm duiqi"  name="storage_path" placeholder="">
+													<input type="text" class="form-control input-sm duiqi" name="storage_path" placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
@@ -657,13 +685,13 @@
 											<div class="form-group " id="forward_addr">
 												<label for="sName" class="col-xs-3 control-label">外发地址:</label>
 												<div class="col-xs-8 ">
-													<input type="text" class="form-control input-sm duiqi"  name="forward_addr" placeholder="">
+													<input type="text" class="form-control input-sm duiqi" name="forward_addr" placeholder="">
 												</div>
 											</div>
 											<div class="form-group " id="forward_port">
 												<label for="sName" class="col-xs-3 control-label">外发端口:</label>
 												<div class="col-xs-8 ">
-													<input type="number" class="form-control input-sm duiqi"  name="forward_port" placeholder="">
+													<input type="number" class="form-control input-sm duiqi" name="forward_port" placeholder="">
 												</div>
 											</div>
 
@@ -679,8 +707,109 @@
 						</div>
 						<!-- /.modal-dialog -->
 					</div>
+					<div class="modal fade" id="changeFilter" role="dialog" aria-labelledby="gridSystemModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="gridSystemModalLabel">文件名过滤</h4>
+								</div>
+								<div class="modal-body">
+									<div class="container-fluid">
+										<form id="form_filter" class="form-horizontal">
+											<label for="sName" class="col-xs-3 control-label">允许:</label>
+											<div class="form-group ">
+												
+												<div class="col-xs-8 ">
+													<textarea type="textarea" class="form-control input-sm duiqi" name="name_white" placeholder=""> </textarea>
+												</div>
+											</div>
+											<label for="sName" class="col-xs-3 control-label">禁止:</label>
+											<div class="form-group ">
+												
+												<div class="col-xs-8 ">
+													<textarea type="textarea" class="form-control input-sm duiqi" name="name_black" placeholder=""> </textarea>
+												</div>
+											</div>
+											
 
+										</form>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+									<button type="button" class="btn btn-xs btn-green" onclick="submit_filter_form()">保 存</button>
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
 
+					<div class="modal fade" id="changeVirus" role="dialog" aria-labelledby="gridSystemModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="gridSystemModalLabel">病毒过滤</h4>
+								</div>
+								<div class="modal-body">
+									<div class="container-fluid">
+										<form id="form_virus" class="form-horizontal">
+
+											<div class="form-group">
+												<label for="situation" class="col-xs-3 control-label">云查杀:</label>
+												<div class="col-xs-8">
+													<label class="control-label" for="anniu">
+														<input type="radio" name="virus_scan" value="yes" onclick="cloud_scan()">开启</label>
+													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													<label class="control-label" for="meun">
+														<input type="radio" name="virus_scan" value="no" onclick="cloud_scan()">不开启</label>
+												</div>
+											</div>
+											<div id="cloud_scan">
+												<div class="form-group ">
+													<label for="sName" class="col-xs-3 control-label">云地址:</label>
+													<div class="col-xs-8 ">
+														<input type="text" class="form-control input-sm duiqi" name="cloud_addr" placeholder="">
+													</div>
+												</div>
+												<div class="form-group ">
+													<label for="sName" class="col-xs-3 control-label">端口:</label>
+													<div class="col-xs-8 ">
+														<input type="number" class="form-control input-sm duiqi" name="cloud_port" placeholder="">
+													</div>
+												</div>
+												<div class="form-group ">
+													<label for="sName" class="col-xs-3 control-label">最大长度:</label>
+													<div class="col-xs-8 ">
+														<input type="text" class="form-control input-sm duiqi" name="virus_size" placeholder="">
+													</div>
+												</div>
+												<div class="form-group ">
+													<label for="sName" class="col-xs-3 control-label">阻断级别:</label>
+													<div class="col-xs-8">
+														<select name="virus_level" class=" form-control select-duiqi">
+															<option value="70">70(高)</option>
+															<option value="60">60(中)</option>
+															<option value="50">50(低)</option>
+														</select>
+													</div>
+												</div>
+											</div>
+
+										</form>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+									<button type="button" class="btn btn-xs btn-green" onclick="submit_virus_form()">保 存</button>
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
 
 				</div>
 				<!--任务管理模块-->
@@ -748,7 +877,7 @@
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">任务号:</label>
 												<div class="col-xs-8 ">
-													<input type="email" class="form-control input-sm duiqi"  name="taskid" placeholder="">
+													<input type="email" class="form-control input-sm duiqi" name="taskid" placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
@@ -764,7 +893,7 @@
 											<div class="form-group">
 												<label for="sLink" class="col-xs-3 control-label">工作目录:</label>
 												<div class="col-xs-8 ">
-													<input type="" class="form-control input-sm duiqi"   name="path" placeholder="">
+													<input type="" class="form-control input-sm duiqi" name="path" placeholder="">
 												</div>
 											</div>
 											<div id="add_recv_t">
@@ -772,10 +901,10 @@
 													<label for="situation" class="col-xs-3 control-label">是否覆盖:</label>
 													<div class="col-xs-8">
 														<label class="control-label" for="anniu">
-															<input type="radio" name="iscover"  value="yes" checked="true">覆盖</label>
+															<input type="radio" name="iscover" value="yes" checked="true">覆盖</label>
 														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 														<label class="control-label" for="meun">
-															<input type="radio" name="iscover"  value="no">不覆盖</label>
+															<input type="radio" name="iscover" value="no">不覆盖</label>
 													</div>
 												</div>
 											</div>
@@ -794,7 +923,7 @@
 												<div class="form-group" id="add_backup">
 													<label for="sKnot" class="col-xs-3 control-label">移动目录:</label>
 													<div class="col-xs-8">
-														<input type="" class="form-control input-sm duiqi"  name='backup' placeholder="" value="backup">
+														<input type="" class="form-control input-sm duiqi" name='backup' placeholder="" value="backup">
 													</div>
 												</div>
 												<div class="form-group">
@@ -810,30 +939,30 @@
 													<label for="situation" class="col-xs-3 control-label">运行:</label>
 													<div class="col-xs-8">
 														<label class="control-label" for="anniu">
-															<input type="radio" name="run"  value="yes" checked="true">运行</label>
+															<input type="radio" name="run" value="yes" checked="true">运行</label>
 														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 														<label class="control-label" for="meun">
-															<input type="radio" name="run"  value="no">不运行</label>
+															<input type="radio" name="run" value="no">不运行</label>
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="situation" class="col-xs-3 control-label">首次扫描:</label>
 													<div class="col-xs-8">
 														<label class="control-label" for="anniu">
-															<input type="radio" name="first"  value="yes" checked="true">开启</label>
+															<input type="radio" name="first" value="yes" checked="true">开启</label>
 														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 														<label class="control-label" for="meun">
-															<input type="radio" name="first"  value="no">关闭</label>
+															<input type="radio" name="first" value="no">关闭</label>
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="situation" class="col-xs-3 control-label">子目录:</label>
 													<div class="col-xs-8">
 														<label class="control-label" for="anniu">
-															<input type="radio" name="subdir"  value="yes" checked="true">同步</label>
+															<input type="radio" name="subdir" value="yes" checked="true">同步</label>
 														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 														<label class="control-label" for="meun">
-															<input type="radio" name="subdir"  value="no">不同步</label>
+															<input type="radio" name="subdir" value="no">不同步</label>
 													</div>
 												</div>
 												<div class="form-group">
@@ -852,7 +981,7 @@
 												<div class="form-group">
 													<label for="sLink" class="col-xs-3 control-label">工作时间:</label>
 													<div class="form-inline col-xs-8 ">
-														<input type="text" class="form-control input-sm duiqi input-mini"   name="worktime" value="00:00:00-23:59:59"
+														<input type="text" class="form-control input-sm duiqi input-mini" name="worktime" value="00:00:00-23:59:59"
 														 placeholder="">
 													</div>
 												</div>
@@ -885,7 +1014,7 @@
 											<div class="form-group ">
 												<label for="sName" class="col-xs-3 control-label">任务号:</label>
 												<div class="col-xs-8 ">
-													<input type="email" class="form-control input-sm duiqi"  name="taskid" placeholder="">
+													<input type="email" class="form-control input-sm duiqi" name="taskid" placeholder="">
 												</div>
 											</div>
 											<div class="form-group ">
@@ -901,7 +1030,7 @@
 											<div class="form-group">
 												<label for="sLink" class="col-xs-3 control-label">工作目录:</label>
 												<div class="col-xs-8 ">
-													<input type="" class="form-control input-sm duiqi"   name="path" placeholder="">
+													<input type="" class="form-control input-sm duiqi" name="path" placeholder="">
 												</div>
 											</div>
 											<div id="mod_recv_t">
@@ -909,10 +1038,10 @@
 													<label for="situation" class="col-xs-3 control-label">是否覆盖:</label>
 													<div class="col-xs-8">
 														<label class="control-label" for="anniu">
-															<input type="radio" name="iscover"  value="yes" checked="true">覆盖</label>
+															<input type="radio" name="iscover" value="yes" checked="true">覆盖</label>
 														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 														<label class="control-label" for="meun">
-															<input type="radio" name="iscover"  value="no">不覆盖</label>
+															<input type="radio" name="iscover" value="no">不覆盖</label>
 													</div>
 												</div>
 											</div>
@@ -931,7 +1060,7 @@
 												<div class="form-group" id="mod_backup">
 													<label for="sKnot" class="col-xs-3 control-label">移动目录:</label>
 													<div class="col-xs-8">
-														<input type="" class="form-control input-sm duiqi"  name='backup' placeholder="" value="backup">
+														<input type="" class="form-control input-sm duiqi" name='backup' placeholder="" value="backup">
 													</div>
 												</div>
 												<div class="form-group">
@@ -947,30 +1076,30 @@
 													<label for="situation" class="col-xs-3 control-label">运行:</label>
 													<div class="col-xs-8">
 														<label class="control-label" for="anniu">
-															<input type="radio" name="run"  value="yes" checked="true">运行</label>
+															<input type="radio" name="run" value="yes" checked="true">运行</label>
 														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 														<label class="control-label" for="meun">
-															<input type="radio" name="run"  value="no">不运行</label>
+															<input type="radio" name="run" value="no">不运行</label>
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="situation" class="col-xs-3 control-label">首次扫描:</label>
 													<div class="col-xs-8">
 														<label class="control-label" for="anniu">
-															<input type="radio" name="first"  value="yes" checked="true">开启</label>
+															<input type="radio" name="first" value="yes" checked="true">开启</label>
 														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 														<label class="control-label" for="meun">
-															<input type="radio" name="first"  value="no">关闭</label>
+															<input type="radio" name="first" value="no">关闭</label>
 													</div>
 												</div>
 												<div class="form-group">
 													<label for="situation" class="col-xs-3 control-label">子目录:</label>
 													<div class="col-xs-8">
 														<label class="control-label" for="anniu">
-															<input type="radio" name="subdir"  value="yes" checked="true">同步</label>
+															<input type="radio" name="subdir" value="yes" checked="true">同步</label>
 														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 														<label class="control-label" for="meun">
-															<input type="radio" name="subdir"  value="no">不同步</label>
+															<input type="radio" name="subdir" value="no">不同步</label>
 													</div>
 												</div>
 												<div class="form-group">
@@ -989,7 +1118,7 @@
 												<div class="form-group">
 													<label for="sLink" class="col-xs-3 control-label">工作时间:</label>
 													<div class="form-inline col-xs-8 ">
-														<input type="text" class="form-control input-sm duiqi input-mini"   name="worktime" value="00:00:00-23:59:59"
+														<input type="text" class="form-control input-sm duiqi input-mini" name="worktime" value="00:00:00-23:59:59"
 														 placeholder="">
 													</div>
 												</div>

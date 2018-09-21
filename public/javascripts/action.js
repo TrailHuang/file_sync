@@ -110,3 +110,38 @@ function delete_task(taskid, tasklist){
 
 }
 
+function submit_filter_form() {
+    var form_data = $('#form_filter').serialize();
+    $.ajax({
+        url: "action/filter_config",
+        data: form_data,
+        type: "post",
+        success: function(data) {
+            $('#changeFilter').modal('hide');
+
+        },
+        error: function() {
+            alert('修改失败!');
+        }
+    });
+
+    return false;
+}
+function submit_virus_form() {
+    var form_data = $('#form_virus').serialize();
+    $.ajax({
+        url: "action/virus_config",
+        data: form_data,
+        type: "post",
+        success: function(data) {
+            $('#changeVirus').modal('hide');
+
+        },
+        error: function() {
+            alert('修改失败!');
+        }
+    });
+
+    return false;
+}
+

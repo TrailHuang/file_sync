@@ -108,6 +108,30 @@ function set_html_value(cfg)
     $('input[name="forward_addr"]').val(cfg.logcenter.forward_addr);
     $('input[name="forward_port"]').val(cfg.logcenter.forward_port);
 
+    //virus
+    set_radio("virus_scan", 3, cfg.virus_cloud.virus_scan);
+    if (cfg.virus_cloud.virus_scan == "yes") {
+        $('#cloud_scan').show();
+    }    
+    else {
+        $('#cloud_scan').hide();
+    }
+    $('input[name="virus_size"]').val(cfg.virus_cloud.virus_size);
+    $('input[name="virus_level"]').val(cfg.virus_cloud.virus_level);
+    $('input[name="cloud_addr"]').val(cfg.virus_cloud.cloud_addr);
+    $('input[name="cloud_port"]').val(cfg.virus_cloud.cloud_port);
+
+    //filter
+    var list = new Array()
+    for (var item in cfg.name_white) {
+        list.push(item);
+    }
+    $('textarea[name="name_white"]').val(list.join("\r\n"));
+    list = []
+    for (var item in cfg.name_black) {
+        list.push(item);
+    }
+    $('textarea[name="name_black"]').val(list.join("\r\n"));
     set_tasklist(cfg.tasklist)
 }
 

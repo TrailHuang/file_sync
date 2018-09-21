@@ -146,9 +146,33 @@ function delete_task(filename, taskid) {
     
     fs.writeFileSync(filename, ini.stringify(config));
 }
+function save_filter(filename, item_obj)
+{
+    var config = ini.parse(fs.readFileSync(filename, "utf8"));
+    console.log(item_obj);
+
+    white = item_obj.name_white.split("\r\n");
+    black = item_obj.name_black.split("\r\n");
+
+    var white_obj = new Object();
+    for (var i = 0; i < white.length; i++) {
+        white_obj[white[i]] = Array(white[i]);
+    }
+    var black_obj = new Object();
+    for (var i = 0; i < black.length; i++) {
+        black_obj[black[i]] = Array(black[i]);
+    }
+   
+    config.name_white = white_obj;
+    config.name_black = black_obj;
+
+
+    fs.writeFileSync(filename, ini.stringify(config));
+}
 
 exports.parse_config = parse_config;
 exports.save_section = save_section;
 exports.add_tasklist = add_tasklist;
 exports.mod_tasklist = mod_tasklist;
 exports.delete_task = delete_task;
+exports.save_filter = save_filter;

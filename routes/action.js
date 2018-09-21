@@ -33,6 +33,14 @@ router.post("/adv_config", function(req,res){ 					   // 从此路径检测到po
     res.end();
 	
 });
+
+
+router.post("/filter_config", function(req,res){ 					   // 从此路径检测到post方式则进行post数据的处理操作
+    console.log(req.body);    
+    cfg.save_filter(path.join(__dirname, '../file_sync.conf'), req.body);
+    res.end();
+	
+});
 router.post("/log_config", function(req,res){ 					   // 从此路径检测到post方式则进行post数据的处理操作
     console.log(req.body);    
     cfg.save_section(path.join(__dirname, '../file_sync.conf'), "logcenter", req.body);
