@@ -6,7 +6,7 @@ function submit_base_form() {
         type: "post",
         success: function(data) {
             $('#changeBase').modal('hide');
-
+			location.reload();
         },
         error: function() {
             alert('修改失败!');
@@ -23,7 +23,7 @@ function submit_send_form() {
         type: "post",
         success: function(data) {
             $('#changeSend').modal('hide');
-
+			location.reload();
         },
         error: function() {
             alert('修改失败!');
@@ -40,7 +40,7 @@ function submit_recv_form() {
         type: "post",
         success: function(data) {
             $('#changeRecv').modal('hide');
-
+			location.reload();
         },
         error: function() {
             alert('修改失败!');
@@ -57,7 +57,7 @@ function submit_auth_form() {
         type: "post",
         success: function(data) {
             $('#changeAuth').modal('hide');
-
+			location.reload();
         },
         error: function() {
             alert('修改失败!');
@@ -74,7 +74,7 @@ function submit_adv_form() {
         type: "post",
         success: function(data) {
             $('#changeAdv').modal('hide');
-
+			location.reload();
         },
         error: function() {
             alert('修改失败!');
@@ -91,7 +91,7 @@ function submit_log_form() {
         type: "post",
         success: function(data) {
             $('#changeLog').modal('hide');
-
+			location.reload();
         },
         error: function() {
             alert('修改失败!');
@@ -118,7 +118,7 @@ function submit_filter_form() {
         type: "post",
         success: function(data) {
             $('#changeFilter').modal('hide');
-
+			location.reload();
         },
         error: function() {
             alert('修改失败!');

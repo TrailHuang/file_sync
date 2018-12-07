@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-/*外层框架样式*/
+
 
 body {
 	min-width: 100%;
@@ -57,7 +57,7 @@ body {
 	min-width: 100%;
 	min-height: 500px;
 }
-/*左侧菜单栏*/
+
 #xhead{
 	padding-bottom: 20px;
 	height: 70px;
@@ -141,7 +141,7 @@ body {
 	border-right: 4px solid #647f9d;
 	color: #fff;
 }
-/*右侧具体内容栏目*/
+
 
 .check-div {
 	height: 70px;
@@ -192,6 +192,12 @@ body {
 	height: 70;
 	line-height: 70px;
 }
+.rowinfo {
+	text-indent: 20em each-line;
+	margin-top: 10px;
+	background-color: #fff;
+	line-height: 20px;
+}
 
 .tablebody .row_list {
 	margin-top: 10px;
@@ -227,7 +233,7 @@ body {
 	border-top: none;
 	background-color: #FFF;
 }
-/*表格上部边框线*/
+
 
 .sitTable .table>tbody>tr:first-child>td {
 	border-top: none;
@@ -263,7 +269,7 @@ body {
 select {
 	padding: 0 auto!important;
 }
-/*进度条样式*/
+
 
 @media (max-width: 1123px) {
 	#rightContent {
@@ -304,7 +310,7 @@ select {
 	color: #eab67c!important;
 	border: 1px solid #eab67c!important;
 }
-/*颜色*/
+
 
 .gray {
 	color: #b7b7b7;

@@ -30,6 +30,7 @@ router.post("/auth_config", function(req,res){ 					   // 从此路径检测到p
 router.post("/adv_config", function(req,res){ 					   // 从此路径检测到post方式则进行post数据的处理操作
     console.log(req.body);    
     cfg.save_section(path.join(__dirname, '../file_sync.conf'), "advanced", req.body);
+    
     res.end();
 	
 });

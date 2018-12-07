@@ -54,6 +54,15 @@
                 $("#topY").toggleClass(" glyphicon-triangle-right");
                 $("#topY").toggleClass(" glyphicon-triangle-bottom");
             });
+            $("#topZZ").click(function() {
+                $("#topZ").toggleClass(" glyphicon-triangle-right");
+                $("#topZ").toggleClass(" glyphicon-triangle-bottom");
+            });
+
+            $("#topWZ").click(function() {
+                $("#topW").toggleClass(" glyphicon-triangle-right");
+                $("#topW").toggleClass(" glyphicon-triangle-bottom");
+            });
 
             $(".toggle-btn").click(function() {
                 $("#leftMeun").toggleClass("show");
@@ -109,8 +118,43 @@
                 }
 
             })
+            set_sub_div();
 
         })
+        
+        function set_sub_div()
+        {
+        	jQuery.each(default_cfg, function(key, val) {
+        		if (key != "name_black" && key != "name_white") {
+        			var pidv = $("#file_conf_" + key);
+        			var childdiv=$('<div></div>');
+	        		childdiv.addClass('rowinfo');
+        			$.each(val, function(subkey, subval) {   
+	        			childdiv.append(subkey + "&nbsp;&nbsp;:&nbsp;&nbsp;"+ subval + "<br\>")
+        			});
+        			
+	        		childdiv.appendTo(pidv);
+        		}
+        		else
+        		{
+        			var pidv = $("#file_conf_name");
+        			var childdiv=$('<div></div>');
+	        		childdiv.addClass('rowinfo');
+	        		childdiv.append(key + ":<br\>");
+        			$.each(val, function(subkey, subval) { 
+	        			
+	        			//$.each(subval, function(i, tmp) {
+	        				childdiv.append("&nbsp;&nbsp;" + subkey + "<br\>");
+	        			//});
+	        			childdiv.append()
+        			});
+        			childdiv.appendTo(pidv);        			
+        		}
+        	});
+        	 
+                    
+        	
+        }
 
         function submit_add_task() {
             var form_data = $('#form_addtask').serialize();
@@ -165,7 +209,7 @@
                     delete_task(taskid, default_cfg.tasklist);
                     var divid = "taskdiv" + taskid;
                     $("#" + divid).remove();
-
+				
                 },
                 error: function() {
                     alert('删除任务失败!');
@@ -244,44 +288,49 @@
                     <div class="data-div">
                         <div class="tablebody">
                             <div class="row">
-                                <div id="topAD" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSystem" aria-expanded="true" aria-controls="collapseOne">
+                                <div id="topAD" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#file_conf_system" aria-expanded="true" aria-controls="collapseOne">
                                     <span id="topA" class="glyphicon glyphicon-triangle-right"></span>
                                     <span>基本设置</span>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                     <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeBase">修改</button>
                                 </div>
-                            </div>
-                            <div id="collapseSystem" class="collapse in" aria-expanded="true">
-                                    
-                            </div>
+                            </div>                             
+                            <div id="file_conf_system" class="collapse" aria-expanded="false">
+							</div>
                             <div class="row">
-                                <div id="topBD" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAuth" aria-expanded="true" aria-controls="collapseOne">
+                                <div id="topBD" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#file_conf_auth" aria-expanded="true" aria-controls="collapseOne">
                                     <span id="topB" class="glyphicon glyphicon-triangle-right"></span>
                                     <span>认证配置</span>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                     <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeAuth">修改</button>
                                 </div>
-                            </div>
+                            </div>                                                        
+                            <div id="file_conf_auth" class="collapse" aria-expanded="false">
+							</div>
                             <div class="row">
-                                <div id="topCD" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSend" aria-expanded="true" aria-controls="collapseOne">
+                                <div id="topCD" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#file_conf_send" aria-expanded="true" aria-controls="collapseOne">
                                     <span id="topC" class="glyphicon glyphicon-triangle-right"></span>
                                     <span>发送配置</span>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                     <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeSend">修改</button>
                                 </div>
-                            </div>
+                            </div>                                                        
+                            <div id="file_conf_send" class="collapse" aria-expanded="false">
+							</div>
                             <div class="row">
-                                <div id="topDD" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseRecv" aria-expanded="true" aria-controls="collapseOne">
+                                <div id="topDD" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#file_conf_recv" aria-expanded="true" aria-controls="collapseOne">
                                     <span id="topD" class="glyphicon glyphicon-triangle-right"></span>
                                     <span>接收配置</span>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                     <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeRecv">修改</button>
                                 </div>
-                            </div>
+                            </div>                                                                                    
+                            <div id="file_conf_recv" class="collapse" aria-expanded="false">
+							</div>
                         </div>
                     </div>
 
@@ -360,44 +409,50 @@
                                     <div class="container-fluid">
                                         <form id="form_send" class="form-horizontal">
                                             <div class="form-group">
-                                                <label for="sName" class="col-xs-3 control-label">网闸地址:</label>
+                                                <label for="sName" class="col-xs-4 control-label">网闸地址:</label>
                                                 <div class="col-xs-6">
                                                     <input type="text" class="form-control input-sm duiqi" name='gap_addr' placeholder="">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="sLink" class="col-xs-3 control-label">网闸端口:</label>
+                                                <label for="sLink" class="col-xs-4 control-label">网闸端口:</label>
                                                 <div class="col-xs-6">
                                                     <input type="number" class="form-control input-sm duiqi" name='gap_port' placeholder="">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="sOrd" class="col-xs-3 control-label">重连间隔:</label>
+                                                <label for="sOrd" class="col-xs-4 control-label">重连间隔:</label>
                                                 <div class="col-xs-6">
                                                     <input type="number" class="form-control input-sm duiqi" name='retry_intvl' placeholder="">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="sOrd" class="col-xs-3 control-label">重连次数:</label>
+                                                <label for="sOrd" class="col-xs-4 control-label">重连次数:</label>
                                                 <div class="col-xs-6">
                                                     <input type="number" class="form-control input-sm duiqi" name="retry_max" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="sOrd" class="col-xs-3 control-label">扫描间隔:</label>
+                                                <label for="sOrd" class="col-xs-4 control-label">扫描间隔:</label>
                                                 <div class="col-xs-6">
                                                     <input type="number" class="form-control input-sm duiqi" name="scann_intvl" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="sOrd" class="col-xs-3 control-label">缓时传输:</label>
+                                                <label for="sOrd" class="col-xs-4 control-label">空目录删除轮:</label>
+                                                <div class="col-xs-6">
+                                                    <input type="number" class="form-control input-sm duiqi" name="empty_del" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sOrd" class="col-xs-4 control-label">缓时传输:</label>
                                                 <div class="col-xs-6">
                                                     <input type="number" class="form-control input-sm duiqi" name="trans_delay" placeholder="">
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="sOrd" class="col-xs-3 control-label">传输排序:</label>
+                                                <label for="sOrd" class="col-xs-4 control-label">传输排序:</label>
                                                 <div class="col-xs-8">
                                                     <select name="trans_order" class="form-control select-duiqi">
                                                         <option value="default">默认排序</option>
@@ -409,13 +464,13 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="sOrd" class="col-xs-3 control-label">扩展名排序:</label>
+                                                <label for="sOrd" class="col-xs-4 control-label">扩展名排序:</label>
                                                 <div class="col-xs-6">
                                                     <input type="text" class="form-control input-sm duiqi" name="trans_ext" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="sOrd" class="col-xs-3 control-label">大小限制:</label>
+                                                <label for="sOrd" class="col-xs-4 control-label">大小限制:</label>
                                                 <div class="col-xs-6">
                                                     <input type="" class="form-control input-sm duiqi" placeholder="">
                                                 </div>
@@ -539,7 +594,7 @@
                     <div class="data-div">
                         <div class="tablebody">
                             <div class="row">
-                                <div id="topXZ" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSystem" aria-expanded="true" aria-controls="collapseOne">
+                                <div id="topXZ" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#file_conf_advanced" aria-expanded="true" aria-controls="collapseOne">
                                     <span id="topX" class="glyphicon glyphicon-triangle-right"></span>
                                     <span>高级设置</span>
                                 </div>
@@ -547,8 +602,10 @@
                                     <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeAdv">修改</button>
                                 </div>
                             </div>
+                             <div id="file_conf_advanced" class="collapse" aria-expanded="false">
+							</div>
                             <div class="row">
-                                <div id="topYZ" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSchool" aria-expanded="true" aria-controls="collapseOne">
+                                <div id="topYZ" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#file_conf_logcenter" aria-expanded="true" aria-controls="collapseOne">
                                     <span id="topY" class="glyphicon glyphicon-triangle-right"></span>
                                     <span>日志配置</span>
                                 </div>
@@ -556,8 +613,10 @@
                                     <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeLog">修改</button>
                                 </div>
                             </div>
+                             <div id="file_conf_logcenter" class="collapse" aria-expanded="false">
+							</div>
                             <div class="row">
-                                <div id="topZZ" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSchool" aria-expanded="true" aria-controls="collapseOne">
+                                <div id="topZZ" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#file_conf_name" aria-expanded="true" aria-controls="collapseOne">
                                     <span id="topZ" class="glyphicon glyphicon-triangle-right"></span>
                                     <span>文件名过滤</span>
                                 </div>
@@ -565,15 +624,20 @@
                                     <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeFilter">修改</button>
                                 </div>
                             </div>
+                             <div id="file_conf_name" class="collapse" aria-expanded="false">
+							</div>
                             <div class="row">
-                                <div id="topYZ" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSchool" aria-expanded="true" aria-controls="collapseOne">
-                                    <span id="topY" class="glyphicon glyphicon-triangle-right"></span>
+                                <div id="topWZ" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button" data-toggle="collapse" data-parent="#accordion" href="#file_conf_virus_cloud" aria-expanded="true" aria-controls="collapseOne">
+                                    <span id="topW" class="glyphicon glyphicon-triangle-right"></span>
                                     <span>病毒过滤</span>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                     <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#changeVirus">修改</button>
                                 </div>
                             </div>
+                            
+                             <div id="file_conf_virus_cloud" class="collapse" aria-expanded="false">
+							</div>
                         </div>
                     </div>
                     <!--高级配置-->
