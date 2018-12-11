@@ -73,7 +73,7 @@ function json2recvtask(obj_list) {
 
 function parse_config(filename) {
     var config = ini.parse(fs.readFileSync(filename, "utf8"));
-    console.log(config);
+    //console.log(config);
 
     var send = sendtask2json(config.send_tasklist);
     var recv = recvtask2json(config.recv_tasklist);
@@ -82,18 +82,18 @@ function parse_config(filename) {
 
     for (item1 of list) {
         var flag = true;
-        for (item2 of tasklist) {  //循环新数组的内容
-            if (item1.taskid == item2.taskid) { //让json数组对象的内容与新数组的内容作比较，相同的话，改变标记为false
+        for (item2 of tasklist) {  
+            if (item1.taskid == item2.taskid) { 
                 item2.work_direction = "sync";
                 item2.iscover = item1.iscover;
                 flag = false;
             }
         }
-        if (flag) { //判断是否重复
-            tasklist.push(item1); //不重复的放入新数组。  新数组的内容会继续进行上边的循环。
+        if (flag) { 
+            tasklist.push(item1);
         }
     }
-    console.log(tasklist);
+    //console.log(tasklist);
     config.tasklist = tasklist;
     delete config.send_tasklist;
     delete config.recv_tasklist;
@@ -104,7 +104,7 @@ function parse_config(filename) {
 function save_section(filename, section, item_obj) {
     var config = ini.parse(fs.readFileSync(filename, "utf8"));
 
-    //console.log(config[section]);
+    ////console.log(config[section]);
     config[section] = item_obj;
     fs.writeFileSync(filename, ini.stringify(config));
 
@@ -149,7 +149,7 @@ function delete_task(filename, taskid) {
 function save_filter(filename, item_obj)
 {
     var config = ini.parse(fs.readFileSync(filename, "utf8"));
-    console.log(item_obj);
+    ////console.log(item_obj);
 
     white = item_obj.name_white.split("\r\n");
     black = item_obj.name_black.split("\r\n");

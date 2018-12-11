@@ -218,6 +218,23 @@
 
             return false;
         }
+        
+        function restart_server()
+		{
+			
+			$.ajax({
+                url: "action/restart",
+                type: "post",
+                success: function(data) {
+                    alert('重启成功!');		
+                },
+                error: function(data,type, err) {
+                    alert(err);
+                }
+            });
+
+            return false;
+		}
 
         function log_forward() {
             var show = "";
@@ -274,7 +291,7 @@
             <div class="meun-item meun-item-active" href="#sour" aria-controls="sour" role="tab" data-toggle="tab"><img src="images/icon_source.png">系统配置</div>
             <div class="meun-item" href="#char" aria-controls="char" role="tab" data-toggle="tab"><img src="images/icon_chara_grey.png">高级配置</div>
             <div class="meun-item" href="#user" aria-controls="user" role="tab" data-toggle="tab"><img src="images/icon_user_grey.png">任务管理</div>
-            <div class="meun-item" href="#chan" aria-controls="chan" role="tab" data-toggle="tab"><img src="images/icon_change_grey.png">修改密码</div>
+            <div class="meun-item" href="#chan" aria-controls="chan" role="tab" data-toggle="tab"><img src="images/icon_change_grey.png">服务重启</div>
         </div>
         <!-- 右侧具体内容栏目 -->
         <div id="rightContent">
@@ -470,9 +487,26 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="sOrd" class="col-xs-4 control-label">大小限制:</label>
+                                                <label for="sOrd" class="col-xs-4 control-label">限制(>=):</label>
                                                 <div class="col-xs-6">
-                                                    <input type="" class="form-control input-sm duiqi" placeholder="">
+                                                    <input type="" class="form-control input-sm duiqi" name="size_limit_min" placeholder="">
+                                                </div>
+                                            </div>
+                                             <div class="form-group">
+                                                <label for="sOrd" class="col-xs-4 control-label">限制(<=):</label>
+                                                <div class="col-xs-6">
+                                                    <input type="" class="form-control input-sm duiqi"  name="size_limit_max" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="sOrd" class="col-xs-4 control-label">限制单位:</label>
+                                                <div class="col-xs-8">
+                                                    <select name="size_unit" class="form-control select-duiqi">
+                                                        <option value="B">B</option>
+                                                        <option value="KB">KB</option>
+                                                        <option value="MB">MB</option>
+                                                        <option value="GB">GB</option>
+                                                    </select>
                                                 </div>
                                             </div>
 
@@ -1253,7 +1287,13 @@
                     <!--弹出删除任务警告窗口-->
 
                 </div>
-
+                <div role="tabpanel" class="tab-pane" id="chan">
+                    <div class="check-div form-inline">
+                        <div class="col-xs-3">
+                            <button class="btn btn-yellow btn-xs" data-toggle="modal" onclick="restart_server()">重启服务 </button>
+                        </div>
+					</div>
+				</div>
             </div>
         </div>
     </div>
